@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static "style.css" %}">
+</head>
+<body>
+    <table>
+        <tr>
+            <th>S/N</th>
+            <th>product name</th>
+            <th>product description </th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            {% for one in allpro %}
+                <th> {{one.id}} </th>
+                <th>{{one.productname}}</th>
+                <th>{{one.production}}</th>
+                <th>
+                    <a href="deleteproduct/<int:productid/{{one.id}}">Delete</a>
+                    <a href="updateproduct/<int:productid/{{one.id}}">Update</a>
+                    <a href="productdetails/<int:productid/{{one.id}}">Update</a>
+                </th>
+            {%end for%}
+        </tr>
+    </table>
+</body>
+</html>
